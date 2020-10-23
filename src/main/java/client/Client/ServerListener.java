@@ -10,7 +10,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 public class ServerListener extends Thread {
     private MainController controller;
-    private final Short SLEEP = 5000;
+    private final Short SLEEP = 250;
     private Model model = Model.getInstance();
     private CommandObject response;
 
@@ -26,11 +26,20 @@ public class ServerListener extends Thread {
             commandObject.setSender(model.session.getUser());
             model.messageSender.sendMessage(commandObject, model.serverAddress);
             response = model.messageReceiver.receiveMessage();
-            System.out.println(model.getGroups());
-            System.out.println(response.getStudyGroups());
-            System.out.println(response.getStudyGroups().equals(model.getGroups()));
-            if (response.getStudyGroups() != null) {
+
+            int n = Math.min(model.getGroups().size(), response.getStudyGroups().size());
+            boolean eq = true;
+
+            for (int i = 0; i < n; i++) {
+                if (!model.getGroups().get(i).equals(response.getStudyGroups().get(i))) {
+                    eq = false;
+                    break;
+                }
+            }
+
+            if (response.getStudyGroups() != null && !eq) {
                 model.setGroups(response.getStudyGroups());
+                System.out.println("Changed");
                 ObservableList<StudyGroup> studyGroups = FXCollections.observableArrayList(response.getStudyGroups());
                 this.controller.groupsTable.setItems(studyGroups);
                 this.controller.groupsTable.refresh();

@@ -50,12 +50,16 @@ public class StudyGroup implements Comparable<StudyGroup>, Serializable {
         return Long.compare(this.id, studyGroup.id);
     }
 
-    public boolean equals(StudyGroup studyGroup) {
+    @Override
+    public boolean equals(Object group) {
+        StudyGroup studyGroup = (StudyGroup) group;
+
         return (this.name.equals(studyGroup.name) &&
                 this.semester.equals(studyGroup.semester) &&
-                this.coordinates.equals(studyGroup.coordinates) &&
+                this.coordinates.getX() == studyGroup.coordinates.getX() &&
+                this.coordinates.getY() == studyGroup.coordinates.getY() &&
                 (this.studentsCount == studyGroup.studentsCount) &&
-                (this.groupAdmin == studyGroup.groupAdmin) &&
+                (this.groupAdmin.getPersonHash().equals(studyGroup.groupAdmin.getPersonHash())) &&
                 this.toExpelAmount.equals(studyGroup.toExpelAmount) &&
                 this.expelledStudentsAmount.equals(studyGroup.expelledStudentsAmount));
     }
