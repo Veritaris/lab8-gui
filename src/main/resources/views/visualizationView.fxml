@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="835.0" prefWidth="800.0" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/8.0.261" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Canvas fx:id="studentsField" height="790.0" layoutX="10.0" layoutY="25.0" width="790.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0" />
+      <Pane fx:id="titleBar" layoutY="-1.0" onMouseDragged="#titleBarMouseDraggedEvent" onMousePressed="#titleBarMousePressedEvent" prefHeight="32.0" prefWidth="800.0" />
+      <Group fx:id="studentsFieldGroup" layoutX="400.0" layoutY="435.0" />
+   </children>
+</AnchorPane>

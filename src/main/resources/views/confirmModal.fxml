@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="300.0" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/8.0.261" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="49.0" prefWidth="300.0" style="-fx-alignment: center;" stylesheets="@../styles/style.css">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #f7fff7;" text="%confirmModalStage.mainLabel">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+      <HBox layoutX="16.0" layoutY="49.0" prefHeight="63.0" prefWidth="269.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center;">
+               <children>
+                  <Button fx:id="confirmActionButton" defaultButton="true" mnemonicParsing="false" onAction="#handleConfirmAction" prefWidth="122.5" text="%confirmModalStage.confirmButton" />
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center;" stylesheets="@../styles/style.css">
+               <children>
+                  <Button fx:id="cancelActionButton" defaultButton="true" mnemonicParsing="false" onAction="#handleCancelAction" prefWidth="122.5" text="%confirmModalStage.cancelButton" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

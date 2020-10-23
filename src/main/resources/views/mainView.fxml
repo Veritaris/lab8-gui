@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<!--suppress JavaFxDefaultTag -->
+
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="1080.0" prefHeight="740.0" prefWidth="1080.0" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.Controllers.MainController">
+   <children>
+      <SplitPane dividerPositions="0.451831750339213" layoutX="213.0" layoutY="267.0" orientation="VERTICAL" prefHeight="718.0" prefWidth="1078.0" stylesheets="@../styles/style.css" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+        <items>
+          <AnchorPane minHeight="150.0" minWidth="0.0" prefHeight="315.0" prefWidth="1078.0">
+               <children>
+                  <AnchorPane fx:id="userInfoBlock" layoutX="14.0" layoutY="55.0" prefHeight="220.0" prefWidth="56.0">
+                     <children>
+                        <GridPane layoutX="1.0" layoutY="72.0" prefHeight="70.0" prefWidth="269.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="148.0" minWidth="10.0" prefWidth="108.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.0" minWidth="10.0" prefWidth="129.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <HBox prefHeight="39.0" prefWidth="140.0" style="-fx-alignment: center;">
+                                 <children>
+                                    <Text fx:id="currentUsernameLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="\%mainStage.currentUsernameLabel" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center;" GridPane.columnIndex="1">
+                                 <children>
+                                    <Text fx:id="currentUserName" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <children>
+                                    <ChoiceBox fx:id="languageSelector" prefHeight="28.0" prefWidth="50.0" stylesheets="@../styles/style.css" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                 <children>
+                                    <Text fx:id="currentLanguageLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="\%mainStage.currentLocale" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </GridPane>
+                        <Button fx:id="logoutButton" layoutX="14.0" layoutY="180.0" mnemonicParsing="false" onAction="#handleLogoutAction" prefHeight="26.0" prefWidth="96.0" text="\%mainStage.logoutButton" />
+                        <HBox layoutX="10.0" prefHeight="45.0" prefWidth="257.0" style="-fx-alignment: center;">
+                           <children>
+                              <Label fx:id="currentUserLabel" style="-fx-text-fill: #292f36;" text="\%mainStage.currentUserLabel" />
+                           </children>
+                        </HBox>
+                        <Button fx:id="changePasswordButton" defaultButton="true" disable="true" layoutX="126.0" layoutY="180.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="162.0" text="\%mainStage.changePasswordButton" />
+                     </children></AnchorPane>
+                  <AnchorPane fx:id="collectionActionsBlock" layoutX="316.0" layoutY="55.0" prefHeight="220.0" prefWidth="600.0">
+                     <children>
+                        <HBox layoutX="16.0" prefHeight="45.0" prefWidth="569.0" style="-fx-alignment: center;">
+                           <children>
+                              <Label fx:id="collectionActionsLabel" style="-fx-text-fill: #292f36;" text="\%mainStage.collectionsActionsLabel" />
+                           </children>
+                        </HBox>
+                        <VBox layoutX="16.0" layoutY="49.0" prefHeight="171.0" prefWidth="269.0">
+                           <children>
+                              <HBox prefHeight="40.0" prefWidth="301.0">
+                                 <children>
+                                    <HBox prefHeight="40.0" prefWidth="103.0" style="-fx-alignment: center-left;">
+                                       <children>
+                                          <Button fx:id="selectScriptButton" defaultButton="true" mnemonicParsing="false" onAction="#handleSelectScriptAction" prefHeight="26.0" prefWidth="100.0" text="\%mainStage.chooseScriptButton" />
+                                       </children>
+                                    </HBox>
+                                     <HBox prefHeight="40.0" prefWidth="162.0" style="-fx-alignment: center-left;">
+                                         <Text fx:id="scriptFileName" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                     </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="40.0" prefWidth="301.0" style="-fx-alignment: center;">
+                                 <children>
+                                    <Button fx:id="executeScriptButton" defaultButton="true" disable="true" mnemonicParsing="false" onAction="#handleExecuteScriptAction" prefHeight="26.0" prefWidth="270.0" text="\%mainStage.executeScriptButton" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="40.0" prefWidth="301.0" style="-fx-alignment: center;">
+                                 <children>
+                                    <Button fx:id="addGroupButton" defaultButton="true" mnemonicParsing="false" onAction="#handleAddGroupAction" prefHeight="26.0" prefWidth="270.0" text="\%mainStage.addGroupButton" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="40.0" prefWidth="200.0" style="-fx-alignment: center;">
+                                 <children>
+                                    <Button fx:id="editGroupButton" defaultButton="true" disable="true" mnemonicParsing="false" onAction="#handleEditGroupAction" prefHeight="26.0" prefWidth="270.0" text="\%mainStage.editGroupButton" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="300.0" layoutY="49.0" prefHeight="171.0" prefWidth="269.0">
+                           <children>
+                              <HBox prefHeight="40.0" prefWidth="301.0">
+                                 <children>
+                                    <HBox prefHeight="40.0" prefWidth="283.0" style="-fx-alignment: center-left;">
+                                       <children>
+                                          <Button defaultButton="true" mnemonicParsing="false" prefHeight="26.0" prefWidth="273.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="40.0" prefWidth="301.0" style="-fx-alignment: center;">
+                                 <children>
+                                    <ToggleButton fx:id="visualizationSwitch" mnemonicParsing="false" onAction="#handleToggleVisualizeSwitchAction" prefHeight="32.0" prefWidth="285.0" text="%mainStage.visualizeCollection" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="40.0" prefWidth="301.0" style="-fx-alignment: center;">
+                                 <children>
+                                    <Button fx:id="deleteSelectedGroupButton" defaultButton="true" mnemonicParsing="false" onAction="#handleDeleteSelectedGroupsAction" prefHeight="26.0" prefWidth="270.0" text="\%mainStage.deleteSelectedGroupsButton" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="40.0" prefWidth="200.0" style="-fx-alignment: center;">
+                                 <children>
+                                    <Button fx:id="deleteAllGroupsButton" defaultButton="true" mnemonicParsing="false" onAction="#handleDeleteAllGroupsAction" prefHeight="26.0" prefWidth="270.0" text="\%mainStage.deleteAllGroupsButton" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <ChoiceBox fx:id="groupSemesterFilter" layoutX="245.0" layoutY="291.0" maxHeight="32.0" minHeight="32.0" prefHeight="32.0" prefWidth="115.0" stylesheets="@../styles/style.css" />
+                  <TextField fx:id="studyGroupNameLookupField" layoutX="129.0" layoutY="291.0" maxHeight="32.0" minHeight="32.0" prefHeight="32.0" prefWidth="109.0" />
+               </children>
+          </AnchorPane>
+          <AnchorPane minHeight="100.0" minWidth="0.0" prefHeight="100.0" prefWidth="1080.0">
+               <children>
+                  <TableView fx:id="groupsTable" editable="true" layoutX="23.0" layoutY="5.0" prefHeight="498.0" prefWidth="1078.0" stylesheets="@../styles/style.css" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="groupID" prefWidth="63.55748796463013" text="ID" />
+                      <TableColumn fx:id="groupName" prefWidth="80.49300384521484" text="\%mainStage.table.groupName" />
+                        <TableColumn fx:id="groupSemester" prefWidth="164.50701904296875" text="\%mainStage.table.semester" />
+                        <TableColumn fx:id="groupCoordinates" minWidth="4.0" prefWidth="106.0" text="\%mainStage.table.coordinates" />
+                        <TableColumn fx:id="groupStudentsAmount" prefWidth="157.0" text="\%mainStage.table.studentsAmount" />
+                        <TableColumn fx:id="groupAdminName" minWidth="0.0" prefWidth="150.0" text="\%mainStage.table.groupAdminName" />
+                        <TableColumn fx:id="groupStudentsAmountToExpel" prefWidth="180.0" text="\%mainStage.table.studentsToExpelAmount" />
+                        <TableColumn fx:id="groupStudentsExpelledAmount" prefWidth="170.0" text="\%mainStage.table.expelledStudentsAmount" />
+                        <TableColumn fx:id="groupCreationDate" minWidth="0.0" prefWidth="112.0" text="\%mainStage.table.creationDate" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <AnchorPane fx:id="titleBar" maxHeight="32.0" minHeight="32.0" onMouseDragged="#titleBarMouseDraggedEvent" onMousePressed="#titleBarMousePressedEvent" prefHeight="32.0" prefWidth="1080.0">
+         <children>
+            <HBox layoutX="1015.0" layoutY="2.0" maxHeight="28.0" maxWidth="80.0" minHeight="28.0" minWidth="65.0" prefHeight="28.0" prefWidth="65.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="minimizeWindowButton" maxHeight="24.0" maxWidth="24.0" minHeight="24.0" minWidth="24.0" mnemonicParsing="false" onAction="#minimizeWindow" prefHeight="20.0" prefWidth="20.0" style="-fx-alignment: center;" />
+                     </children>
+                  </HBox>
+                  <HBox maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="closeWindowButton" maxHeight="24.0" maxWidth="24.0" minHeight="24.0" minWidth="24.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="20.0" prefWidth="20.0" style="-fx-alignment: center;" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

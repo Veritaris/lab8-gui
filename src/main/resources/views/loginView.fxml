@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/8.0.261" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.Controllers.LoginController">
+   <children>
+      <Pane cacheShape="false" centerShape="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" scaleShape="false" style="-fx-background-color: #292F36;" stylesheets="@../styles/style.css" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane layoutX="384.0" layoutY="164.0" prefHeight="420.0" prefWidth="300.0" style="-fx-background-color: #4ECDC4;">
+               <children>
+                  <Button fx:id="switchToRegisterButton" defaultButton="true" layoutX="65.0" layoutY="288.0" mnemonicParsing="false" onAction="#handleSwitchToRegisterStageAction" prefHeight="32.0" prefWidth="170.0" text="%loginStage.registerButton" />
+                  <Button fx:id="loginButton" defaultButton="true" layoutX="65.0" layoutY="249.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleLoginAction" prefHeight="32.0" prefWidth="170.0" text="%loginStage.loginButton" />
+                  <TextField fx:id="usernameField" layoutX="65.0" layoutY="115.0" prefHeight="26.0" prefWidth="170.0" promptText="%loginStage.usernamePlaceholder" style="-fx-background-color: #F7FFF7;" text="user" />
+                  <PasswordField fx:id="passwordField" layoutX="65.0" layoutY="157.0" prefHeight="26.0" prefWidth="170.0" promptText="%loginStage.passwordPlaceholder" style="-fx-background-color: #F7FFF7;" text="pass" />
+                  <ProgressIndicator fx:id="progressIndicator" layoutX="124.0" layoutY="340.0" visible="false" />
+                  <HBox layoutX="26.0" layoutY="194.0" prefHeight="53.0" prefWidth="250.0" style="-fx-alignment: center;">
+                     <children>
+                        <Text fx:id="errorMessageBox" fontSmoothingType="LCD" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" />
+                     </children>
+                  </HBox>
+                  <HBox layoutX="1.0" layoutY="62.0" prefHeight="53.0" prefWidth="300.0" style="-fx-alignment: center;">
+                     <children>
+                        <Label prefHeight="33.0" prefWidth="161.0" styleClass="title" text="%loginStage.mainLabel" textAlignment="CENTER" textFill="#292f36">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <AnchorPane fx:id="titleBar" maxHeight="32.0" minHeight="32.0" onMouseDragged="#titleBarMouseDraggedEvent" onMousePressed="#titleBarMousePressedEvent" prefHeight="32.0">
+         <children>
+            <HBox layoutX="1015.0" layoutY="2.0" maxHeight="28.0" maxWidth="80.0" minHeight="28.0" minWidth="65.0" prefHeight="28.0" prefWidth="65.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="minimizeWindowButton" maxHeight="24.0" maxWidth="24.0" minHeight="24.0" minWidth="24.0" mnemonicParsing="false" onAction="#minimizeWindow" prefHeight="24.0" prefWidth="24.0" style="-fx-alignment: center;" />
+                     </children>
+                  </HBox>
+                  <HBox maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="closeWindowButton" maxHeight="24.0" maxWidth="24.0" minHeight="24.0" minWidth="24.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="20.0" prefWidth="20.0" style="-fx-alignment: center;" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
